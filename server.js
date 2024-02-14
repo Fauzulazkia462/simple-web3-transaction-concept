@@ -6,8 +6,7 @@ const path = require('path');
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
-
-// Serve static files from the 'public' directory
+app.set("views", __dirname + "/views");
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware
