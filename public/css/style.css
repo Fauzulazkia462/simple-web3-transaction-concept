@@ -1,0 +1,38 @@
+.dataTables_wrapper .dataTables_info {
+    color: white;
+    background-color: transparent;
+}
+
+.dataTables_length{
+    option{
+        color:black;
+    }
+}
+
+ td {
+    text-align: center;
+}
+
+.paginate_button {
+    color: white;
+    background-color: transparent;
+}
+
+th, label {
+   color: white;
+}
+
+.dataTable{
+    background-color: transparent;
+}
+
+tbody{
+    tr, td{
+        background-color: transparent !important;
+        color: white;
+    }
+}
+
+footer {
+    margin-top:30px;
+}
