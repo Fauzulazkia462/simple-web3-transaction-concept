@@ -73,12 +73,12 @@ exports.send = async (nonce, fromAddress, toAddress, amount, signTxn) => {
     // Update recipient's balance
     recipientAccount.balance += amount;
 
-    await fs.writeFile(jsonFilePath, JSON.stringify(oldData, null, 2));
+    await fsp.writeFile(jsonFilePath, JSON.stringify(oldData, null, 2));
     return true;
 }
 
 exports.dataTrx = async (amount, fromAddress, toAddress, nonce) => {
-    const rawData = await fs.readFile(jsontrxFilePath);
+    const rawData = await fsp.readFile(jsontrxFilePath);
     const oldData = JSON.parse(rawData);
 
     const newData = {};

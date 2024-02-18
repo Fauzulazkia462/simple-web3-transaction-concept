@@ -34,7 +34,7 @@ exports.add = (data) => {
     
     // generating private Key, public key, and address
     const privateKey = toHex(secp.utils.randomPrivateKey());
-    const publicKey = toHex(secp.getPublicKey(privateKey));
+    const publicKey = toHex(secp.getPublicKey(privateKey, true));
     const address = publicKey.slice(-20);
 
     // inserting the private key, public key, and address to the data object

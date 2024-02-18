@@ -1,7 +1,7 @@
 [
   {
     "name": "Fauzul Azkia",
-    "balance": 4500,
+    "balance": 4604,
     "privateKey": "288e4573d5034cf3425988d8a16770e52c30c16d5df3eca8ce36a65110a5dcf1",
     "publicKey": "03183bb51b927218dfd4bc790f6a3bedf9b1fa17724419e4a20e07d36d2865c8c0",
     "address": "e4a20e07d36d2865c8c0",
@@ -22,5 +22,13 @@
     "publicKey": "033e75a7246de3a89bfaf23fec1e0bdc6bbe2465b125aea011279c15dee6ad976e",
     "address": "a011279c15dee6ad976e",
     "created": "2/18/2024, 7:05:13 PM"
+  },
+  {
+    "name": "Aidil",
+    "balance": 890,
+    "privateKey": "8aae0af271a8c02b9ecc9a68ef0044a4a5ea1ed828690a74712c0bfe375c2c63",
+    "publicKey": "03439d628ac592f738e4e27fda5a851e0bc9b3a161460ab1bee30b918cb340636f",
+    "address": "b1bee30b918cb340636f",
+    "created": "2/18/2024, 7:50:19 PM"
   }
 ]

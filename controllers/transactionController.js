@@ -36,11 +36,11 @@ exports.send = async (req, res) => {
     const success = await transactionModel.send(nonce, fromAddress, toAddress, amount, signTxn);
 
     if(!success){
-
+        res.send("Error sending");
     }
 
     // inserting trx data
-    const trxData = await transactionModel.dataTrx(amount, fromAddress, toAddress, nonce);
+    await transactionModel.dataTrx(amount, fromAddress, toAddress, nonce);
 
     // runnnign the addNonce funcion from model of nonce
     await nonceModel.addNonce();
