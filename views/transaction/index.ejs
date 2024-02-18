@@ -14,55 +14,102 @@
         <%- include('../partials/nav') %>
         <div class="container m-10">
 
+            <!-- send balance card -->
+            <div class="rounded-xl mx-auto shadow-md border-white border bg-transparent place-content-stretch">
+                <div class="m-5">
+                    <h3 class="text-3xl px-3 py-2 text-cyan-400 font-bold mb-5">Send balance</h3>
+                    <form action="/send" method="post">
+                        <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="fromPrivatekey" placeholder="Your Private Key" onchange="getBalanceAddress()">
+                        <label class="px-3 py-2 w-full block text-sm mb-5" id="address"></label>
+                        <label class="px-3 py-2 w-full block text-sm mb-5" id="name"></label>
+                        <label class="px-3 py-2 w-full block text-sm mb-5" id="balance"></label>
 
-                <!-- send balance card -->
-                <div class="rounded-xl mx-auto shadow-md border-white border bg-transparent place-content-stretch">
-                    <div class="m-5">
-                        <h3 class="text-3xl px-3 py-2 text-cyan-400 font-bold mb-5">Send balance</h3>
-                        <form action="/send" method="post">
-                            <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="fromAddress" placeholder="From Address">
-                            <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="toAddress" placeholder="To Address">
-                            <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="amount" placeholder="Amount">
-                            <button class="bg-cyan-400 hover:bg-cyan-600 rounded shadow m-3 w-20 h-8">Send</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- accounts card -->
-                <div class="rounded-xl mx-auto shadow-md border-white border bg-transparent place-content-stretch mt-10">
-                    <div class="m-5">
-                        <h3 class="text-3xl px-3 py-2 text-cyan-400 font-bold mb-5">Accounts</h3>
-                        <table id="table1">
-                            <thead>
-                                <tr>
-                                    <th>Address</th>
-                                    <th>Balance</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% data.forEach(account=> { %>
-                                    <tr>
-                                        <td>
-                                            <%= account.address %>
-                                        </td>
-                                        <td>
-                                            <%= account.balance %>
-                                        </td>
-                                    </tr>
-                                    <% }); %>
-                            </tbody>
-                        </table>
-                    </div>
+                        <input type="hidden" name="fromAddress" id="fromAddress" value="">
+                        <input type="hidden" name="fromPrivatekey" id="fromPrivatekeyInput" value="">
+                        <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="toAddress" placeholder="To Address">
+                        <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="amount" placeholder="Amount">
+                        <button class="bg-cyan-400 hover:bg-cyan-600 rounded shadow m-3 w-20 h-8">Send</button>
+                    </form>
                 </div>
             </div>
-            <%- include('../partials/footer') %>
 
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-            <script src="js/script.js"></script>
-            <script>
-                document.getElementById('trxNav').style.color = "#22d3ef";
-            </script>
+            <!-- accounts card -->
+            <div class="rounded-xl mx-auto shadow-md border-white border bg-transparent place-content-stretch mt-10">
+                <div class="m-5">
+                    <h3 class="text-3xl px-3 py-2 text-cyan-400 font-bold mb-5">Accounts</h3>
+                    <table id="table1">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Public Key</th>
+                                <th>Private Key</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% data.forEach(account=> { %>
+                                <tr>
+                                    <td><%= account.name %></td>
+                                    <td><%= account.address %></td>
+                                    <td><%= account.publicKey %></td>
+                                    <td><%= account.privateKey %></td>
+                                    <td><%= account.balance %></td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- transaction card -->
+            <div class="rounded-xl mx-auto shadow-md border-white border bg-transparent place-content-stretch mt-10">
+                <div class="m-5">
+                    <h3 class="text-3xl px-3 py-2 text-cyan-400 font-bold mb-5">Transactions</h3>
+                    <table id="table2">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>From Address</th>
+                                <th>To Address</th>
+                                <th>Amount</th>
+                                <th>Nonce</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% trxData.forEach(trx=> { %>
+                                <tr>
+                                    <td>
+                                        <%= trx.time %>
+                                    </td>
+                                    <td>
+                                        <%= trx.fromAddress %>
+                                    </td>
+                                    <td>
+                                        <%= trx.toAddress %>
+                                    </td>
+                                    <td>
+                                        <%= trx.amount %>
+                                    </td>
+                                    <td>
+                                        <%= trx.nonce %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <%- include('../partials/footer') %>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="js/script.js"></script>
+        <script>
+            document.getElementById('trxNav').style.color = "#22d3ef";
+        </script>
     </body>
 
 </html>

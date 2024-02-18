@@ -1,46 +1,26 @@
 [
   {
-    "address": "123",
-    "balance": 96
+    "name": "Fauzul Azkia",
+    "balance": 4500,
+    "privateKey": "288e4573d5034cf3425988d8a16770e52c30c16d5df3eca8ce36a65110a5dcf1",
+    "publicKey": "03183bb51b927218dfd4bc790f6a3bedf9b1fa17724419e4a20e07d36d2865c8c0",
+    "address": "e4a20e07d36d2865c8c0",
+    "created": "2/16/2024, 7:05:13 PM"
   },
   {
-    "address": "321",
-    "balance": 79
+    "name": "Ahmet",
+    "balance": 9987,
+    "privateKey": "8ac7a1ab3384eabbb0285f1534252b1848d0e829a7c827f02ee42eee034c60e9",
+    "publicKey": "02c0984ef6a30fe81f1421945c88be5acb7b13f433acce2e4a90b0fc54e17d972e",
+    "address": "2e4a90b0fc54e17d972e",
+    "created": "2/17/2024, 7:05:13 PM"
   },
   {
-    "address": "333",
-    "balance": 45
-  },
-  {
-    "address": "4444",
-    "balance": 2344
-  },
-  {
-    "address": "222",
-    "balance": 123
-  },
-  {
-    "address": "654322",
-    "balance": 343
-  },
-  {
-    "address": "323456",
-    "balance": 3245
-  },
-  {
-    "address": "5664",
-    "balance": 3453
-  },
-  {
-    "address": "89986",
-    "balance": 345
-  },
-  {
-    "address": "6532",
-    "balance": 45
-  },
-  {
-    "address": "752",
-    "balance": 345
+    "name": "Huwa",
+    "balance": 1040,
+    "privateKey": "fa677c2ba4c779435188f3f9e574fc369f17310fa367aad66ee6e91976ef9317",
+    "publicKey": "033e75a7246de3a89bfaf23fec1e0bdc6bbe2465b125aea011279c15dee6ad976e",
+    "address": "a011279c15dee6ad976e",
+    "created": "2/18/2024, 7:05:13 PM"
   }
 ]

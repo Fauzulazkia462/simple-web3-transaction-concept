@@ -17,7 +17,7 @@
                 <div class="m-5">
                     <h3 class="text-3xl px-3 py-2 text-cyan-400 font-bold mb-5">Create Account</h3>
                     <form action="/add" method="post" id="addForm">
-                        <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="address" placeholder="Address">
+                        <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="name" placeholder="Name">
                         <input type="text" class="rounded px-3 py-2 border shadow w-full block text-sm mb-5" name="balance" placeholder="Balance">
                         <button class="bg-cyan-400 hover:bg-cyan-600 rounded shadow m-3 w-20">Add</button>
                     </form>
@@ -31,7 +31,10 @@
                     <table id="table1">
                         <thead>
                             <tr>
+                                <th>Name</th>
                                 <th>Address</th>
+                                <th>Public Key</th>
+                                <th>Private Key</th>
                                 <th>Balance</th>
                                 <th>Action</th>
                             </tr>
@@ -39,7 +42,10 @@
                         <tbody>
                             <% data.forEach(account => { %>
                                 <tr>
+                                    <td><%= account.name %></td>
                                     <td><%= account.address %></td>
+                                    <td><%= account.publicKey %></td>
+                                    <td><%= account.privateKey %></td>
                                     <td><%= account.balance %></td>
                                     <td><button class="deleteBtn bg-cyan-400 text-black hover:bg-cyan-600 rounded shadow m-3 w-20 h-8" data-id="<%= account.address %>">Delete</button></td>
                                 </tr>

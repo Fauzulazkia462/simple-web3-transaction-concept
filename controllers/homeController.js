@@ -3,18 +3,21 @@ const accountsModel = require('../models/Accounts');
 exports.index = (req, res) => {
     const data = accountsModel.getAll();
     res.render('home/index', {data});
-};
+}
 
 exports.add = (req, res) => {
     const newData = req.body;
-    const success = accountsModel.add(newData);
 
-    if(success){
-        res.redirect('/');
+    try{
+        const success = accountsModel.add(newData);
+        if (success) {
+            res.redirect('/');
+        }
+    } catch(e) {
+        console.log('Error: ', e);
     }
 
-    res.send('<script>alert("Address already exists!"); window.location="/";</script>');
-};
+}
 
 exports.delete = (req, res) => {
     const id = req.body.id;
